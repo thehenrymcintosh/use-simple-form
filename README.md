@@ -34,8 +34,8 @@ import { useSimpleForm, SimpleFormValidators } from "react-use-simple-form";
 
 // Specify the type of your state
 type State = {
-  name: string,
-  age: number,
+    name: string,
+    age: number,
 };
 
 // and the initial state
@@ -46,45 +46,45 @@ const initialState: State = {
 
 // and optionally, validators
 const validators: SimpleFormValidators<State> = {
-    name: /{a-zA-Z}/, // you can specify a regex
+    name: /^[a-zA-Z- ]{2,50}$/, // you can specify a regex
     age: (ageToValidate, entireForm) => ageToValidate >= 25 && ageToValidate < 90, // or a function
     // fields without validators specified will be assumed to be valid
 }
 
 
-const ExampleComponent: React.FC = () => {
-  const myForm = useSimpleForm(initialState, validators)
+export const ExampleComponent: React.FC = () => {
+    const myForm = useSimpleForm(initialState, validators)
+    console.log(myForm)
+    return (
+        <div>
+            <label>Name</label>
+            <input
+                id={'name-input'}
+                className={ myForm.manager.name.isValid ? 'valid' : 'invalid' }
+                type={'text'}
+                value={myForm.manager.name.value}
+                onChange={(e) => myForm.manager.name.set(e.target.value)}
+            />
 
-  return (
-    <div>
-        <label>Name</label>
-        <input 
-            id={'name-input'}
-          className={ myForm.manager.name.isValid ? 'valid' : 'invalid' }
-          type={'text'}
-            value={myForm.manager.name.value}
-          onChange={(e) => myForm.manager.name.set(e.target.value)}
-      />
-    
-        <label>Age</label>
-        <input
-            className={ myForm.manager.age.isValid ? 'valid' : 'invalid' }
-            type={'number'}
-            step={1}
-            min={0}
-            max={100}
-            value={myForm.manager.age.value}
-            onChange={(e) => myForm.manager.age.set(parseFloat(e.target.value))}
-        />
-        
-      <button disabled={myForm.isValid} onClick={() => {}}>
-        Submit
-      </button>
-        
-      <button onClick={() => myForm.setAll(initialState)}>
-        Reset
-      </button>
-    </div>
-  );
+            <label>Age</label>
+            <input
+                className={ myForm.manager.age.isValid ? 'valid' : 'invalid' }
+                type={'number'}
+                step={1}
+                min={0}
+                max={100}
+                value={myForm.manager.age.value}
+                onChange={(e) => myForm.manager.age.set(parseFloat(e.target.value))}
+            />
+
+            <button disabled={!myForm.isValid} onClick={() => {}}>
+                Submit
+            </button>
+
+            <button onClick={() => myForm.set(initialState)}>
+                Reset
+            </button>
+        </div>
+    );
 };
 ```
