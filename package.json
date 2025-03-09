@@ -1,0 +1,36 @@
+{
+  "name": "react-use-simple-form",
+  "version": "0.1.0",
+  "description": "A React hook which manages and validates form state.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --sourceMap false",
+    "prepublishOnly": "npm run-script build"
+  },
+  "peerDependencies": {
+    "react": ">= 16.0.0"
+  },
+  "keywords": [
+    "React",
+    "Form",
+    "State",
+    "Validation",
+    "Hook",
+    "Simple",
+    "Use"
+  ],
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/thehenrymcintosh/React-Use-Simple-Form",
+  "bugs": {
+    "url": "https://github.com/thehenrymcintosh/React-Use-Simple-Form/issues"
+  },
+  "author": "Henry McIntosh",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
