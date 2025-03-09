@@ -22,9 +22,9 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/thehenrymcintosh/React-Use-Simple-Form",
+  "homepage": "https://github.com/thehenrymcintosh/use-simple-form",
   "bugs": {
-    "url": "https://github.com/thehenrymcintosh/React-Use-Simple-Form/issues"
+    "url": "https://github.com/thehenrymcintosh/use-simple-form/issues"
   },
   "author": "Henry McIntosh",
   "license": "MIT",
