@@ -1,6 +1,6 @@
 {
   "name": "react-use-simple-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React hook which manages and validates form state.",
   "main": "dist/index.js",
   "scripts": {
